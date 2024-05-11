@@ -1,0 +1,6 @@
+{
+  "is_proxy": true,
+  "pool": "races:one_handed_war_axe_pool",
+  "max_spell_count": 1,
+  "spell_ids": ["power_shot" ]
+}
