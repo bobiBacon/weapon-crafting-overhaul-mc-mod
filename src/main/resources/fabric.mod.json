@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "races",
+	"version": "${version}",
+	"name": "Races Mod For My Server",
+	"description": "This mod adds races with powers, talent tree and special attacks",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/races/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.bobbacon.races.RacesModForMyServer"
+		],
+		"client": [
+			"net.bobbacon.races.RacesModForMyServerClient"
+		],
+		"fabric-datagen": [
+			"net.bobbacon.races.RacesModForMyServerDataGenerator"
+		]
+	},
+	"mixins": [
+		"races.mixins.json",
+		{
+			"config": "races.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

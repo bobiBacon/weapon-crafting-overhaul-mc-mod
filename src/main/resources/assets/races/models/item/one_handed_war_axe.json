@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "races:item/one_handed_war_axe"
+  }
+}
