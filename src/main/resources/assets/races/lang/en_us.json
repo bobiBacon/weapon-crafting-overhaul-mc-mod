@@ -1,0 +1,5 @@
+{
+  "spell.races.power_shot.name": "Power Shot",
+  "spell.races.power_shot.description": "Execute a powerful attack that deals {damage} melee damage and gives weakness to the target",
+  "item.races.one_handed_war_axe": "War axe"
+}
