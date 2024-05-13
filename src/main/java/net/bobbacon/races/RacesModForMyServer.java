@@ -4,6 +4,8 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import net.bobbacon.races.config.Default;
 import net.bobbacon.races.item.ModItems;
+import net.bobbacon.races.race.Race;
+import net.bobbacon.races.race.Races;
 import net.fabricmc.api.ModInitializer;
 
 import net.spell_engine.api.item.ItemConfig;
@@ -35,6 +37,7 @@ public class RacesModForMyServer implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
+		Races.init();
 
 		ModItems.init();
 		ModItems.register(itemConfig.value.weapons);

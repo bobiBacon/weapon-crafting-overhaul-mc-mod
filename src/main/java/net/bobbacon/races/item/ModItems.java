@@ -35,7 +35,6 @@ public class ModItems  {
         return entry;
     }
 
-
 //    public static final Item ONE_HANDED_WAR_AXE= Registry.register(Registries.ITEM, new Identifier(MOD_ID,"one_handed_war_axe"),new AxeItem(ToolMaterials.IRON,5,-2.5f,new FabricItemSettings()));
     public static final Weapon.Entry ONE_HANDED_WAR_AXE= entry("one_handed_war_axe", Weapon.CustomMaterial.matching(ToolMaterials.IRON,
         ()-> Ingredient.ofItems(Items.STICK)),7,-2.8f,new OneHandedWarAxe(ToolMaterials.IRON,7,-2.8f,new FabricItemSettings(), ExternalSpellSchools.PHYSICAL_MELEE),new ItemConfig.Weapon(7,-2.8f)).attribute(ItemConfig.Attribute.multiply(ExternalSpellSchools.PHYSICAL_MELEE.id, 20));
