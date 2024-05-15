@@ -9,6 +9,7 @@ import net.bobbacon.races.player.IItemMixin;
 import net.bobbacon.races.player.IPlayerEntityMixin;
 import net.bobbacon.races.player.WeaponTypes;
 import net.minecraft.block.Block;
+import net.bobbacon.races.IPlayerMixin;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
@@ -20,15 +21,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.weapon.SpellWeaponItem;
 import net.spell_engine.api.spell.ExternalSpellSchools;
-import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.SpellContainer;
 import net.spell_engine.internals.SpellContainerHelper;
 import net.spell_power.api.SpellSchool;
-import net.spell_power.api.SpellSchools;
 
 public class OneHandedWarAxe extends SpellWeaponItem {
     SpellSchool school = ExternalSpellSchools.PHYSICAL_MELEE;
@@ -76,8 +76,10 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         ((IPlayerEntityMixin)miner).learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
+        if (miner instanceof PlayerEntity player){
+            player.sendMessage(Text.of(((IPlayerMixin) (Object) player).getRace().toString()),true);
 
-
+        }
         return super.postMine(stack, world, state, pos, miner);
     }
 }
