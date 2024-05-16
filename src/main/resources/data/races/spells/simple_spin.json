@@ -1,0 +1,74 @@
+{
+  "school": "PHYSICAL_MELEE",
+  "group": "primary",
+  "range": 3,
+  "learn": {
+    "tier": 0
+  },
+  "cast": {
+    "duration": 0
+
+  },
+  "release": {
+    "target": {
+      "type": "AREA",
+      "area": {
+        "vertical_range_multiplier": 0.5
+      }
+    },
+    "animation": "races:simple_spin",
+    "sound": {
+      "id": "spell_engine:generic_fire_release"
+    },
+    "particles": [
+      {
+        "particle_id": "sweep_attack",
+        "shape": "SPHERE",
+        "origin": "CENTER",
+        "count": 1
+      }
+    ]
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 1
+        }
+      },
+      "particles": [
+
+        {
+          "particle_id": "spell_engine:dripping_blood",
+          "shape": "CIRCLE",
+          "origin": "HEAD",
+          "count": 10.0,
+          "min_speed": 0.1,
+          "max_speed": 0.3
+        }
+      ],
+      "sound": {
+        "id": "wizards:fire_scorch_impact"
+      }
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "apply_mode": "ADD",
+          "duration": 6,
+          "amplifier": 1,
+          "effect_id": "minecraft:weakness",
+          "show_particles": false
+        },
+        "apply_to_caster": false
+      }
+    }
+
+  ],
+  "cost": {
+    "cooldown_duration": 4,
+    "cooldown_proportional": false
+  }
+}
