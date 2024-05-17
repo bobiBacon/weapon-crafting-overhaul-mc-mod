@@ -34,6 +34,9 @@ repositories {
 		name = "Ladysnake Libs"
 		url = 'https://maven.ladysnake.org/releases'
 	}
+	maven {
+		url "https://cursemaven.com"
+	}
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -73,6 +76,9 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	implementation include("com.github.ZsoltMolnarrr:TinyConfig:2.3.2")
+	modImplementation "maven.modrinth:C37HUu02:WP327lEb"
+	modImplementation "maven.modrinth:USLVyT7V:L4ojkbl8"
+
 //	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
 
