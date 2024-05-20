@@ -1,7 +1,11 @@
 package net.bobbacon.races.player;
 
-public interface IPlayerEntityMixin {
-    public LearnedSpells spells = new LearnedSpells();
+import net.minecraft.util.Identifier;
 
-    public LearnedSpells getSpells();
+import java.util.ArrayList;
+
+public interface IPlayerEntityMixin {
+    public final ArrayList<Identifier> spells= new ArrayList<>();
+
+    void learn(Identifier id);
 }

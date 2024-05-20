@@ -71,7 +71,7 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-        ((IPlayerEntityMixin)miner).getSpells().learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
+        ((IPlayerEntityMixin)miner).learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
 
         return super.postMine(stack, world, state, pos, miner);
     }
