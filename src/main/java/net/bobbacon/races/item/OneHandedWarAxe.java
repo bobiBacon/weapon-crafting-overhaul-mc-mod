@@ -2,6 +2,9 @@ package net.bobbacon.races.item;
 
 import com.google.common.collect.Multimap;
 import net.bobbacon.races.RacesModForMyServer;
+import net.bobbacon.races.player.IItemMixin;
+import net.bobbacon.races.player.IPlayerEntityMixin;
+import net.bobbacon.races.player.WeaponTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -33,6 +36,10 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     public OneHandedWarAxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings, SpellSchool school) {
         super(material, attackDamage, attackSpeed, settings);
         this.school=school;
+
+        IItemMixin item=(IItemMixin)this;
+        item.setWeaponType(WeaponTypes.AXE);
+
     }
     public SpellSchool getSchool() {
         return school;
@@ -64,7 +71,7 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-        SpellContainerHelper.addSpell(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"),stack);
+        ((IPlayerEntityMixin)miner).getSpells().learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
 
         return super.postMine(stack, world, state, pos, miner);
     }

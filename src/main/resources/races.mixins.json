@@ -3,7 +3,11 @@
 	"package": "net.bobbacon.races.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"ItemMixin",
+		"ItemStackMixin",
+		"LivingEntityMixin",
+		"PayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
