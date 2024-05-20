@@ -1,6 +1,7 @@
 package net.bobbacon.races.item;
 
 import com.google.common.collect.Multimap;
+import net.bobbacon.races.RacesModForMyServer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,11 +12,14 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.weapon.SpellWeaponItem;
 import net.spell_engine.api.spell.ExternalSpellSchools;
 import net.spell_engine.api.spell.Spell;
+import net.spell_engine.api.spell.SpellContainer;
+import net.spell_engine.internals.SpellContainerHelper;
 import net.spell_power.api.SpellSchool;
 import net.spell_power.api.SpellSchools;
 
@@ -60,6 +64,8 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+        SpellContainerHelper.addSpell(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"),stack);
+
         return super.postMine(stack, world, state, pos, miner);
     }
 }
