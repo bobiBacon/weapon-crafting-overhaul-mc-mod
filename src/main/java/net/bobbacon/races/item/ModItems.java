@@ -47,7 +47,7 @@ public class ModItems  {
     public static final Item BRONZE_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"bronze_ingot"),new Item(new FabricItemSettings()));
     public static final Item STEEL_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"steel_ingot"),new Item(new FabricItemSettings()));
     public static final Item ELVEN_GOLD_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"elven_gold_ingot"),new Item(new FabricItemSettings()));
-    public static final Item DARK_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"dark_mithril_ingot"),new DarkMithrilIngot(new FabricItemSettings()));
+    public static final Item DARK_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"dark_mithril_ingot"),new DarkMithrilIngot(new Item.Settings()));
     public static final Item MITHRIL_NUGGET= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"mithril_nugget"),new Item(new FabricItemSettings()));
 
 

@@ -1,6 +1,9 @@
 package net.bobbacon.races.item;
 
 import com.google.common.collect.Multimap;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
+import io.wispforest.owo.client.screens.ScreenInternals;
+import io.wispforest.owo.command.debug.OwoDebugCommands;
 import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.player.IItemMixin;
 import net.bobbacon.races.player.IPlayerEntityMixin;
@@ -12,6 +15,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
@@ -72,6 +76,7 @@ public class OneHandedWarAxe extends SpellWeaponItem {
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         ((IPlayerEntityMixin)miner).learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
+
 
         return super.postMine(stack, world, state, pos, miner);
     }
