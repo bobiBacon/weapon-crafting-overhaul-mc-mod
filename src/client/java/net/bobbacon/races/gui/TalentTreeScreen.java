@@ -4,14 +4,14 @@ import io.wispforest.owo.ui.base.BaseOwoScreen;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.container.Containers;
 import io.wispforest.owo.ui.container.FlowLayout;
-import io.wispforest.owo.ui.core.HorizontalAlignment;
-import io.wispforest.owo.ui.core.OwoUIAdapter;
-import io.wispforest.owo.ui.core.Surface;
-import io.wispforest.owo.ui.core.VerticalAlignment;
+import io.wispforest.owo.ui.core.*;
+import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.key_blinds.ModKeybindings;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
+
+import static net.bobbacon.races.RacesModForMyServer.MOD_ID;
 
 public class TalentTreeScreen extends BaseOwoScreen<FlowLayout> {
 
@@ -30,10 +30,12 @@ public class TalentTreeScreen extends BaseOwoScreen<FlowLayout> {
                 .verticalAlignment(VerticalAlignment.CENTER);
 
         rootComponent.child(
-                Components.button(
-                        Text.literal("A Button"),
-                        button -> { System.out.println("click"); } //
-                )
+                Containers.verticalFlow(Sizing.fill(60) , Sizing.fill(60))
+                        .child(Containers.horizontalFlow(Sizing.fill(10) , Sizing.fill(10)))
+                        .padding(Insets.of(10)) //
+                        .surface(Surface.DARK_PANEL)
+                        .verticalAlignment(VerticalAlignment.CENTER)
+                        .horizontalAlignment(HorizontalAlignment.CENTER)
         );
     }
 
