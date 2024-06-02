@@ -1,5 +1,6 @@
 package net.bobbacon.races.item;
 
+import net.bobbacon.races.registry.RegistryHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
@@ -39,7 +40,8 @@ public class ModItems  {
     public static final Weapon.Entry ONE_HANDED_WAR_AXE= entry("one_handed_war_axe", Weapon.CustomMaterial.matching(ToolMaterials.IRON,
         ()-> Ingredient.ofItems(Items.STICK)),7,-2.8f,new OneHandedWarAxe(ToolMaterials.IRON,7,-2.8f,new FabricItemSettings(), ExternalSpellSchools.PHYSICAL_MELEE),new ItemConfig.Weapon(7,-2.8f)).attribute(ItemConfig.Attribute.multiply(ExternalSpellSchools.PHYSICAL_MELEE.id, 20));
 
-    public static final Item MITHRIL_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"mithril_ingot"),new Item(new FabricItemSettings()));
+    static RegistryHelper<Item> registryHelper= new RegistryHelper<>(Registries.ITEM);
+    public static final Item MITHRIL_INGOT= registryHelper.register("mithril_ingot",new Item(new FabricItemSettings()));
     public static final Item DWARFS_ALLOY_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"dwarfs_alloy_ingot"),new Item(new FabricItemSettings()));
     public static final Item RAW_TIN= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"raw_tin"),new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT= Registry.register(Registries.ITEM,new Identifier(MOD_ID,"tin_ingot"),new Item(new FabricItemSettings()));

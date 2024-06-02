@@ -7,7 +7,7 @@
 		"ItemMixin",
 		"ItemStackMixin",
 		"LivingEntityMixin",
-		"PayerEntityMixin"
+      "PlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

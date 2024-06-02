@@ -1,15 +1,10 @@
 package net.bobbacon.races.item;
 
 import com.google.common.collect.Multimap;
-import com.mojang.authlib.minecraft.client.MinecraftClient;
-import io.wispforest.owo.client.screens.ScreenInternals;
-import io.wispforest.owo.command.debug.OwoDebugCommands;
 import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.player.IItemMixin;
 import net.bobbacon.races.player.IPlayerEntityMixin;
 import net.bobbacon.races.player.WeaponTypes;
-import net.minecraft.block.Block;
-import net.bobbacon.races.IPlayerMixin;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
@@ -26,8 +21,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.weapon.SpellWeaponItem;
 import net.spell_engine.api.spell.ExternalSpellSchools;
-import net.spell_engine.api.spell.SpellContainer;
-import net.spell_engine.internals.SpellContainerHelper;
 import net.spell_power.api.SpellSchool;
 
 public class OneHandedWarAxe extends SpellWeaponItem {
@@ -77,7 +70,7 @@ public class OneHandedWarAxe extends SpellWeaponItem {
         stack.damage(3,miner,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         ((IPlayerEntityMixin)miner).learn(new Identifier(RacesModForMyServer.MOD_ID,"simple_spin"));
         if (miner instanceof PlayerEntity player){
-            player.sendMessage(Text.of(((IPlayerMixin) (Object) player).getRace().toString()),true);
+            player.sendMessage(Text.of(((IPlayerEntityMixin)  player).getRace().toString()),true);
 
         }
         return super.postMine(stack, world, state, pos, miner);

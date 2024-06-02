@@ -7,13 +7,21 @@ import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.*;
 import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.key_blinds.ModKeybindings;
+import net.bobbacon.races.talent.TalentTree;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
 
+import java.util.List;
+
 import static net.bobbacon.races.RacesModForMyServer.MOD_ID;
 
 public class TalentTreeScreen extends BaseOwoScreen<FlowLayout> {
+
+
+    public TalentTreeScreen(List<TalentTree> talentTrees) {
+        super();
+    }
 
     @Override
     protected @NotNull OwoUIAdapter<FlowLayout> createAdapter() {

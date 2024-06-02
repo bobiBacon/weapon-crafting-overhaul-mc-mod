@@ -6,6 +6,8 @@ import net.bobbacon.races.config.Default;
 import net.bobbacon.races.item.ModItems;
 import net.bobbacon.races.race.Race;
 import net.bobbacon.races.race.Races;
+import net.bobbacon.races.talent.TalentTree;
+import net.bobbacon.races.talent.TalentTrees;
 import net.fabricmc.api.ModInitializer;
 
 import net.spell_engine.api.item.ItemConfig;
@@ -38,6 +40,9 @@ public class RacesModForMyServer implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 
 		Races.init();
+
+		TalentTree.init();
+		TalentTrees.init();
 
 		ModItems.init();
 		ModItems.register(itemConfig.value.weapons);

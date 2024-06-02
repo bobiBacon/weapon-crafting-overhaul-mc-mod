@@ -4,6 +4,9 @@ import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.player.IItemStackMixin;
 import net.bobbacon.races.player.IPlayerEntityMixin;
 import net.bobbacon.races.player.WeaponTypes;
+import net.bobbacon.races.race.Race;
+import net.bobbacon.races.race.Races;
+import net.bobbacon.races.talent.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -15,10 +18,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Mixin(PlayerEntity.class)
 
-public abstract class PayerEntityMixin extends LivingEntityMixin implements IPlayerEntityMixin {
+public abstract class PlayerEntityMixin extends LivingEntityMixin implements IPlayerEntityMixin {
     @Unique
     public final ArrayList<Identifier> spells= new ArrayList<>();
 
@@ -70,5 +74,22 @@ public abstract class PayerEntityMixin extends LivingEntityMixin implements IPla
     @Unique
     public void learn(Identifier id){
         spells.add(id);
+    }
+
+    @Unique
+    private Race race= Races.HUMAN;
+
+    @Unique
+    private ArrayList<TalentTree> talentTrees= new ArrayList<>(List.of(new TalentTree[]{TalentTrees.COMBAT, TalentTrees.CRAFTING}));
+
+    @Override
+    @Unique
+    public List<TalentTree> getTalents() {
+        return talentTrees;
+    }
+
+    @Unique
+    public Race getRace(){
+        return this.race;
     }
 }
