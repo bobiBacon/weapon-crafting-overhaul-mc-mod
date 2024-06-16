@@ -1,6 +1,5 @@
 {
   "is_proxy": true,
   "max_spell_count": 2,
-  "pool": "races:one_handed_war_axe_pool",
-  "spell_ids": ["races:power_shot", "races:simple_spin"]
+  "spell_ids": ["races:power_shot_2h ", "races:simple_spin"]
 }

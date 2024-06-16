@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CombatTalentTree extends TalentTree{
     RegistryHelper<Talent> registryHelper= new RegistryHelper<>(ModRegistries.TALENTS);
-    Talent Weapons1= Registry.register(ModRegistries.TALENTS, new Identifier(RacesModForMyServer.MOD_ID,"weapons1"),new Talent(20));
+    Talent Weapons1= registryHelper.register("weapons1",new Talent(20));
     Talent Weapons2= registryHelper.register("weapons2",new Talent(50));
     Talent Weapons3= registryHelper.register("weapons3",new Talent(100));
 
