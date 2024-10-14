@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "races:tin_stone_bowl"
+    }
+  ],
+  "result": {
+    "item": "races:tin_ingot"
+  }
+}

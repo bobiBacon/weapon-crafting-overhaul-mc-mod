@@ -1,15 +1,19 @@
 {
-	"required": true,
-	"package": "net.bobbacon.races.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ExampleMixin",
-		"ItemMixin",
-		"ItemStackMixin",
-		"LivingEntityMixin",
-      "PlayerEntityMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.bobbacon.races.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnvilMixin",
+    "ExampleMixin",
+    "ItemMixin",
+    "ItemStackMixin",
+    "LivingEntityMixin",
+    "MiningToolItemMixin",
+    "PlayerEntityMixin",
+    "ToolItemMixin",
+    "ToolMaterialsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

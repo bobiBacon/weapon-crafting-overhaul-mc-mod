@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "races:copper_stone_bowl"
+    }
+  ],
+  "result": {
+    "item": "minecraft:copper_ingot"
+  }
+}

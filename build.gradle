@@ -38,6 +38,7 @@ repositories {
 		url 'https://maven.wispforest.io'
 	}
 
+
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
@@ -54,8 +55,10 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+	accessWidenerPath = file("src/main/resources/races.accesswidener")
 
 }
+
 
 fabricApi {
 	configureDataGeneration()
@@ -79,11 +82,9 @@ dependencies {
 	implementation include("com.github.ZsoltMolnarrr:TinyConfig:2.3.2")
 	modImplementation "maven.modrinth:C37HUu02:WP327lEb"
 	modImplementation "maven.modrinth:USLVyT7V:L4ojkbl8"
-
-
-
+	modImplementation "maven.modrinth:polymorph:${project.polymorph_version}"
+//	modCompileOnly ("maven.modrinth:crafttweaker:${project.craft_tweaker_version}")
 	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
-
 //	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
 

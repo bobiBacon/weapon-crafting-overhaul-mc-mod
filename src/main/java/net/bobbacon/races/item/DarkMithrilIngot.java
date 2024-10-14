@@ -12,4 +12,6 @@ public class DarkMithrilIngot extends Item {
     public boolean hasGlint(ItemStack stack) {
         return true;
     }
+
+
 }

@@ -1,5 +1,5 @@
 {
   "is_proxy": true,
   "max_spell_count": 2,
-  "spell_ids": ["races:power_shot_2h ", "races:simple_spin"]
+  "spell_ids": ["races:power_shot_2h", "races:simple_spin"]
 }

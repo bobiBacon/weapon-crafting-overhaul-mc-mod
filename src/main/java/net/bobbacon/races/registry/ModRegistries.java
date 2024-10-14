@@ -1,6 +1,7 @@
 package net.bobbacon.races.registry;
 
 import net.bobbacon.races.RacesModForMyServer;
+import net.bobbacon.races.liquid_metal.LiquidMetal;
 import net.bobbacon.races.race.Race;
 import net.bobbacon.races.talent.Talent;
 import net.bobbacon.races.talent.TalentTree;
@@ -17,6 +18,9 @@ public class ModRegistries {
             .attribute(RegistryAttribute.SYNCED)
             .buildAndRegister();
     public static final SimpleRegistry<Talent> TALENTS = FabricRegistryBuilder.createSimple(Talent.class,new Identifier(RacesModForMyServer.MOD_ID,"talent_registry"))
+            .attribute(RegistryAttribute.SYNCED)
+            .buildAndRegister();
+    public static final SimpleRegistry<LiquidMetal> LIQUID_METALS = FabricRegistryBuilder.createSimple(LiquidMetal.class,new Identifier(RacesModForMyServer.MOD_ID,"liquid_metal_registry"))
             .attribute(RegistryAttribute.SYNCED)
             .buildAndRegister();
 }

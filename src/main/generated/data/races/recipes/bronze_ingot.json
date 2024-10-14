@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "races:copper_stone_bowl"
+    },
+    {
+      "item": "races:copper_stone_bowl"
+    },
+    {
+      "item": "races:copper_stone_bowl"
+    },
+    {
+      "item": "races:copper_stone_bowl"
+    },
+    {
+      "item": "races:copper_stone_bowl"
+    },
+    {
+      "item": "races:tin_stone_bowl"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "item": "races:bronze_ingot"
+  }
+}

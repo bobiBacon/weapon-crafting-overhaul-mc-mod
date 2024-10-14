@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "races:deepslate_tin_ore",
+    "races:tin_ore"
+  ]
+}

@@ -2,6 +2,7 @@ package net.bobbacon.races.registry;
 
 import net.bobbacon.races.RacesModForMyServer;
 import net.bobbacon.races.talent.Talent;
+import net.medievalweapons.MedievalMain;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;

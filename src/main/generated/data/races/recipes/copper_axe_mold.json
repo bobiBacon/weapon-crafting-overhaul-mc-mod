@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "races:copper_stone_bowl"
+    },
+    "M": {
+      "item": "races:axe_mold"
+    }
+  },
+  "pattern": [
+    "BB",
+    " B",
+    "M "
+  ],
+  "result": {
+    "item": "races:copper_axe_mold"
+  },
+  "show_notification": true
+}

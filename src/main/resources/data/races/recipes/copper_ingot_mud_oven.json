@@ -1,0 +1,8 @@
+{
+  "type": "races:brick_furnace_cooking",
+  "ingredient": {
+    "item": "minecraft:raw_copper"
+  },
+  "result": "minecraft:copper_ingot",
+  "experience": 0.2
+}

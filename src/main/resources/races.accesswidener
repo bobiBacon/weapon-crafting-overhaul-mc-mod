@@ -1,0 +1,5 @@
+accessWidener v1 named
+
+#accessible field net/minecraft/registry/BuiltinRegistries REGISTRY_BUILDER Lnet/minecraft/registry/RegistryBuilder
+
+accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory

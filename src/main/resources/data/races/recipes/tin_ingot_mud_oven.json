@@ -1,0 +1,8 @@
+{
+  "type": "races:brick_furnace_cooking",
+  "ingredient": {
+    "item": "races:raw_tin"
+  },
+  "result": "races:tin_ingot",
+  "experience": 0.2
+}

@@ -65,9 +65,7 @@ public abstract class PlayerEntityMixin extends LivingEntityMixin implements IPl
             return false;
         }
         if (wp== WeaponTypes.AXE){
-            if (spellId.toString().equals("races:simple_spin")){
-                return true;
-            }
+            return spellId.toString().equals("races:simple_spin");
         }
         return false;
     }

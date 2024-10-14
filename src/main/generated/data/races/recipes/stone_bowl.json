@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "races:rock"
+    }
+  },
+  "pattern": [
+    "R R",
+    " R "
+  ],
+  "result": {
+    "item": "races:stone_bowl"
+  },
+  "show_notification": true
+}
