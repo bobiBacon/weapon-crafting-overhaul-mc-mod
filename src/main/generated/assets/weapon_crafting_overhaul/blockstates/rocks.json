@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "stack=1": [
+      {
+        "model": "weapon_crafting_overhaul:block/rocks"
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks",
+        "y": 90
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks",
+        "y": 180
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks",
+        "y": 270
+      }
+    ],
+    "stack=2": [
+      {
+        "model": "weapon_crafting_overhaul:block/rocks2"
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks2",
+        "y": 90
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks2",
+        "y": 180
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks2",
+        "y": 270
+      }
+    ],
+    "stack=3": [
+      {
+        "model": "weapon_crafting_overhaul:block/rocks3"
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks3",
+        "y": 90
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks3",
+        "y": 180
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks3",
+        "y": 270
+      }
+    ],
+    "stack=4": [
+      {
+        "model": "weapon_crafting_overhaul:block/rocks4"
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks4",
+        "y": 90
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks4",
+        "y": 180
+      },
+      {
+        "model": "weapon_crafting_overhaul:block/rocks4",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item_of_tag_bowl": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "weapon_crafting_overhaul:bowl"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "weapon_crafting_overhaul:pickaxe_mold"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_item_of_tag_bowl",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "weapon_crafting_overhaul:pickaxe_mold"
+    ]
+  },
+  "sends_telemetry_event": false
+}

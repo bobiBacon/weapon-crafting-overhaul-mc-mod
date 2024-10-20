@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "races:deepslate_tin_ore",
-    "races:tin_ore"
+    "weapon_crafting_overhaul:deepslate_tin_ore",
+    "weapon_crafting_overhaul:tin_ore"
   ]
 }

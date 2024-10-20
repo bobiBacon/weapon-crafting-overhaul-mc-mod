@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "weapon_crafting_overhaul:tin_stone_bowl"
+    }
+  ],
+  "result": {
+    "item": "weapon_crafting_overhaul:tin_ingot"
+  }
+}

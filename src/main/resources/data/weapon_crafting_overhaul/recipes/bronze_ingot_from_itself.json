@@ -1,0 +1,9 @@
+{
+  "type": "weapon_crafting_overhaul:brick_furnace_cooking",
+  "ingredient": {
+    "item": "weapon_crafting_overhaul:bronze_ingot"
+  },
+  "result": "weapon_crafting_overhaul:bronze_ingot",
+  "experience": 0.2,
+  "needsbellows": true
+}

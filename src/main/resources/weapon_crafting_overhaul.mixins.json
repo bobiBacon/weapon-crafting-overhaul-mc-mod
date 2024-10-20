@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.bobbacon.weapon_crafting_overhaul.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AnvilMixin",
+    "MiningToolItemMixin",
+    "ToolItemMixin",
+    "ToolMaterialsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

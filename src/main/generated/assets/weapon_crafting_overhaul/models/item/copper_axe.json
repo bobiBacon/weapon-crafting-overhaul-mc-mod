@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "weapon_crafting_overhaul:item/copper_axe"
+  }
+}

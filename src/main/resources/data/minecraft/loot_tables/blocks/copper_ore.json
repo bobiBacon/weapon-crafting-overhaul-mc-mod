@@ -44,7 +44,7 @@
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "items": [
-                      "races:rock"
+                      "weapon_crafting_overhaul:rock"
                     ]
                   }
                 }

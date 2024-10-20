@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "weapon_crafting_overhaul:block/tin_ore"
+    }
+  }
+}

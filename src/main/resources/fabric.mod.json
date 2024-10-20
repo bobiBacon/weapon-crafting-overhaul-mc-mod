@@ -1,34 +1,34 @@
 {
 	"schemaVersion": 1,
-	"id": "races",
+	"id": "weapon_crafting_overhaul",
 	"version": "${version}",
-	"name": "Races Mod For My Server",
-	"description": "This mod adds races with powers, talent tree and special attacks",
+	"name": "Weapon Crafting Overhaul",
+	"description": "This mod adds a new crafting system",
 	"authors": [
-		"Me!"
+		"bob_bacon"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": "https://github.com/bobiBacon/weapon-crafting-overhaul-mc-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/races/icon.png",
+	"icon": "assets/weapon_crafting_overhaul/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.bobbacon.races.RacesModForMyServer"
+			"net.bobbacon.weapon_crafting_overhaul.WeaponCraftingOverhaul"
 		],
 		"client": [
-			"net.bobbacon.races.RacesModForMyServerClient"
+			"net.bobbacon.weapon_crafting_overhaul.WeaponCraftingOverhaulClient"
 		],
 		"fabric-datagen": [
-			"net.bobbacon.races.RacesModForMyServerDataGenerator"
+			"net.bobbacon.weapon_crafting_overhaul.WeaponCraftingOverhaulDataGenerator"
 		]
 	},
 	"mixins": [
-		"races.mixins.json",
+		"weapon_crafting_overhaul.mixins.json",
 		{
-			"config": "races.client.mixins.json",
+			"config": "weapon_crafting_overhaul.client.mixins.json",
 			"environment": "client"
 		}
 	],
@@ -40,5 +40,5 @@
 	},
 	"suggests": {
 	},
-	"accessWidener": "races.accesswidener"
+	"accessWidener": "weapon_crafting_overhaul.accesswidener"
 }

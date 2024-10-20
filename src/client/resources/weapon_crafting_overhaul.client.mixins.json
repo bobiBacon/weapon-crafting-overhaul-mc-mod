@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "net.bobbacon.weapon_crafting_overhaul.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

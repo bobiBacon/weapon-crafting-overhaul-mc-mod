@@ -1,0 +1,8 @@
+{
+  "type": "weapon_crafting_overhaul:brick_furnace_cooking",
+  "ingredient": {
+    "item": "weapon_crafting_overhaul:raw_tin"
+  },
+  "result": "weapon_crafting_overhaul:tin_ingot",
+  "experience": 0.2
+}

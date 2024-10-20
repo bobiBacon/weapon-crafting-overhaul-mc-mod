@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    "M": {
+      "item": "weapon_crafting_overhaul:pickaxe_mold"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "   ",
+    " M "
+  ],
+  "result": {
+    "item": "weapon_crafting_overhaul:copper_pickaxe_mold"
+  },
+  "show_notification": true
+}

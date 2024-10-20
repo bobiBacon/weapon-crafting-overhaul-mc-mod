@@ -1,0 +1,12 @@
+{
+  "feature": "weapon_crafting_overhaul:rocks",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:count",
+      "count": 5
+    }
+  ]
+}

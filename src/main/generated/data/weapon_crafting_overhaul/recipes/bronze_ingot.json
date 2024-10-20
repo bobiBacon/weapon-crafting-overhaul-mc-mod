@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    {
+      "item": "weapon_crafting_overhaul:copper_stone_bowl"
+    },
+    {
+      "item": "weapon_crafting_overhaul:tin_stone_bowl"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "item": "weapon_crafting_overhaul:bronze_ingot"
+  }
+}

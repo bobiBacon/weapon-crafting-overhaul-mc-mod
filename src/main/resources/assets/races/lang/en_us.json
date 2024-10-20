@@ -1,9 +1,0 @@
-{
-  "spell.races.power_shot.name": "Power Shot",
-  "spell.races.simple_spin.name": "Martial Spin",
-
-  "spell.races.power_shot.description": "Execute a powerful attack that deals {damage} melee damage and gives weakness to the target",
-  "spell.races.simple_spin.description": "Deals {damage} melee damage all around",
-
-  "item.races.one_handed_war_axe": "Short war axe"
-}

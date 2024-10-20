@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "weapon_crafting_overhaul:block/deepslate_tin_ore"
+  }
+}
