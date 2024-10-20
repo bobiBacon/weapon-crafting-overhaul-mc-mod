@@ -120,6 +120,15 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.TIN_STONE_BOWL),FabricRecipeProvider.conditionsFromItem(ModItems.TIN_STONE_BOWL))
                 .criterion(FabricRecipeProvider.hasItem(ModItems.TIN_INGOT),FabricRecipeProvider.conditionsFromItem(ModItems.TIN_INGOT))
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.FABRIC)
+                .pattern("SS")
+                .pattern("SS")
+                .pattern("SS")
+                .input('S',Items.STRING)
+                .criterion(FabricRecipeProvider.hasItem(Items.STRING),
+                        FabricRecipeProvider.conditionsFromItem(Items.STRING))
+                .offerTo(exporter);
     }
     private static void bowlToIngot(ItemConvertible bowl,ItemConvertible ingot,Consumer<RecipeJsonProvider> exporter){
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ingot)

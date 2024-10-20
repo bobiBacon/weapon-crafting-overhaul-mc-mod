@@ -43,6 +43,7 @@ public class ModItems  {
     public static final Item WAR_AXE_MOLD = registryHelper.register("war_axe_mold",new Item(new Item.Settings()));
     public static final Item COPPER_PICKAXE_MOLD= registryHelper.register("copper_pickaxe_mold", new Item(new Item.Settings()));
     public static final Item COPPER_AXE_MOLD = registryHelper.register("copper_axe_mold", new Item(new Item.Settings()));
+    public static final Item FABRIC = registryHelper.register("fabric", new Item(new Item.Settings()));
 
     public static void init() {
     }

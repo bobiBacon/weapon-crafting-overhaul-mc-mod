@@ -59,5 +59,6 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WAR_AXE_MOLD,Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COPPER_AXE_MOLD,Models.GENERATED);
+        itemModelGenerator.register(ModItems.FABRIC,Models.GENERATED);
     }
 }
