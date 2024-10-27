@@ -6,14 +6,9 @@ import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetals;
 import net.bobbacon.weapon_crafting_overhaul.registry.RegistryHelper;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 import static net.bobbacon.weapon_crafting_overhaul.WeaponCraftingOverhaul.MOD_ID;
 
@@ -44,6 +39,8 @@ public class ModItems  {
     public static final Item COPPER_PICKAXE_MOLD= registryHelper.register("copper_pickaxe_mold", new Item(new Item.Settings()));
     public static final Item COPPER_AXE_MOLD = registryHelper.register("copper_axe_mold", new Item(new Item.Settings()));
     public static final Item FABRIC = registryHelper.register("fabric", new Item(new Item.Settings()));
+    public static final Item BELLOWS = registryHelper.register("bellows", new BlockItem(ModBlocks.BELLOWS, new Item.Settings()));
+
 
     public static void init() {
     }

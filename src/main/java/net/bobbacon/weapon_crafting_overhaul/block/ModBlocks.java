@@ -19,6 +19,8 @@ public class ModBlocks {
             new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE)));
     public static final Block DEEP_TIN_ORE= registryHelper.register("deepslate_tin_ore",
             new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_IRON_ORE)));
+    public static final Block BELLOWS = registryHelper.register("bellows",
+            new Bellows(FabricBlockSettings.create().nonOpaque().notSolid()));
     public static void init(){
 
         WeaponCraftingOverhaul.LOGGER.info("blocks");

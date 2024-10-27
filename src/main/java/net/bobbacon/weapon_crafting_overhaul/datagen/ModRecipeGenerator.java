@@ -129,6 +129,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.STRING),
                         FabricRecipeProvider.conditionsFromItem(Items.STRING))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BELLOWS)
+                .pattern("  W")
+                .pattern(" LF")
+                .pattern("CLW")
+                .input('W',ItemTags.PLANKS).input('L', Items.LEATHER).input('C', Items.COPPER_INGOT).input('F',ModItems.FABRIC)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FABRIC),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FABRIC))
+                .offerTo(exporter);
     }
     private static void bowlToIngot(ItemConvertible bowl,ItemConvertible ingot,Consumer<RecipeJsonProvider> exporter){
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ingot)

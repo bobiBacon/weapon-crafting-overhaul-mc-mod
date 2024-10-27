@@ -1,7 +1,7 @@
 package net.bobbacon.weapon_crafting_overhaul;
 
 import net.bobbacon.weapon_crafting_overhaul.block.ModBlocks;
-import net.bobbacon.weapon_crafting_overhaul.block.block_entity.ModBE;
+import net.bobbacon.weapon_crafting_overhaul.block.block_entity.ModBEs;
 import net.bobbacon.weapon_crafting_overhaul.item.ModItems;
 import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetals;
 import net.bobbacon.weapon_crafting_overhaul.recipe.ModRecipes;
@@ -12,6 +12,7 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib.GeckoLib;
 
 public class WeaponCraftingOverhaul implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -31,11 +32,11 @@ public class WeaponCraftingOverhaul implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 
 
-
 		ModItems.init();
 
 		ModBlocks.init();
-		ModBE.init();
+		ModBEs.init();
+		GeckoLib.initialize();
 
 		ModRecipeTypes.init();
 		ModRecipes.init();
@@ -44,6 +45,8 @@ public class WeaponCraftingOverhaul implements ModInitializer {
 		ModWorldGen.WorldGen();
 
 		LiquidMetals.init();
+
+
 
 
 

@@ -2,7 +2,7 @@ package net.bobbacon.weapon_crafting_overhaul.block;
 
 import net.bobbacon.weapon_crafting_overhaul.WeaponCraftingOverhaul;
 import net.bobbacon.weapon_crafting_overhaul.block.block_entity.BrickFurnaceBE;
-import net.bobbacon.weapon_crafting_overhaul.block.block_entity.ModBE;
+import net.bobbacon.weapon_crafting_overhaul.block.block_entity.ModBEs;
 import net.bobbacon.weapon_crafting_overhaul.item.ModItems;
 import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetal;
 import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetalable;
@@ -62,7 +62,7 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return BrickFurnace.checkType(type, ModBE.BRICK_FURNACE_BLOCK_ENTITY, BrickFurnaceBE::tick);
+        return BrickFurnace.checkType(type, ModBEs.MUD_OVEN_BLOCK_ENTITY_TYPE, BrickFurnaceBE::tick);
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

@@ -1,6 +1,7 @@
 package net.bobbacon.weapon_crafting_overhaul;
 
 import net.bobbacon.weapon_crafting_overhaul.key_blinds.ModKeybindings;
+import net.bobbacon.weapon_crafting_overhaul.render.ModEntitiesRenderers;
 import net.fabricmc.api.ClientModInitializer;
 
 public class WeaponCraftingOverhaulClient implements ClientModInitializer {
@@ -8,5 +9,6 @@ public class WeaponCraftingOverhaulClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		ModKeybindings.init();
+		ModEntitiesRenderers.init();
 	}
 }

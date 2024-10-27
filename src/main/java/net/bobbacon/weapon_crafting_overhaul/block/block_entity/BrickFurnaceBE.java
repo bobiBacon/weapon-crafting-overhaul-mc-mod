@@ -45,7 +45,7 @@ public class BrickFurnaceBE extends BlockEntity {
     private final String COOKING_TIME_KEY = "remaining_time_of_cooking";
     private final RecipeManager.MatchGetter<Inventory, BrickFurnaceCookingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(ModRecipeTypes.BRICK_FURNACE_COOKING_TYPE);
     public BrickFurnaceBE( BlockPos pos, BlockState state) {
-        super(ModBE.BRICK_FURNACE_BLOCK_ENTITY, pos, state);
+        super(ModBEs.MUD_OVEN_BLOCK_ENTITY_TYPE, pos, state);
     }
 
     @Override

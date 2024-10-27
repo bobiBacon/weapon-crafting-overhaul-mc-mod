@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "F": {
+      "item": "weapon_crafting_overhaul:fabric"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "  W",
+    " LF",
+    "CLW"
+  ],
+  "result": {
+    "item": "weapon_crafting_overhaul:bellows"
+  },
+  "show_notification": true
+}
