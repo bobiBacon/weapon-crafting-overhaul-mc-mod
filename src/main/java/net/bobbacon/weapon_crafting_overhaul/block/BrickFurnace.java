@@ -189,10 +189,7 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
         world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,d,e,f,(random.nextFloat()-0.5)/30-0.02,0.05+(random.nextFloat()/100),(random.nextFloat()-0.5)/30);
     }
 
-    @Override
-    public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
-        return super.getAmbientOcclusionLightLevel(state, world, pos);
-    }
+
     @Override
     public ItemStack tryDrainLiquidMetal(World world,BlockPos pos,PlayerEntity player,BlockState state) {
 

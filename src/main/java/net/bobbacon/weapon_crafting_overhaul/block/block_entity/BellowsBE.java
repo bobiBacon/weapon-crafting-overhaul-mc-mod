@@ -1,8 +1,10 @@
 package net.bobbacon.weapon_crafting_overhaul.block.block_entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -15,10 +17,12 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.Map;
 
 public class BellowsBE extends BlockEntity implements GeoBlockEntity {
+//    @Nullable
+//    protected Block connectedFurnace;
     private final AnimatableInstanceCache cache= GeckoLibUtil.createInstanceCache(this);
     protected static final RawAnimation BLOW_ANIM = RawAnimation.begin().thenPlay("animation.model.blow").thenWait(4);
     private static final String BLOW_ANIM_NAME = "blow";
-    private final String BLOWING_CONTROLLER = "blowing_controller";
+    private static final String BLOWING_CONTROLLER = "blowing_controller";
     public BellowsBE(BlockPos pos, BlockState state) {
         super(ModBEs.BELLOWS_BLOCK_ENTITY_TYPE, pos, state);
     }

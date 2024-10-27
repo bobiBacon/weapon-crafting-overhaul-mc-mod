@@ -12,7 +12,13 @@
 			},
 			"bones": [
 				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"rotation": [0, 90, 0]
+				},
+				{
 					"name": "bas",
+					"parent": "bone",
 					"pivot": [6, 0, 0],
 					"cubes": [
 						{"origin": [-9, 0, -1], "size": [3, 2, 2], "uv": [22, 32]},
@@ -70,6 +76,7 @@
 				},
 				{
 					"name": "haut",
+					"parent": "bone",
 					"pivot": [5, 2, 0],
 					"rotation": [0, 0, 35],
 					"cubes": [
@@ -94,7 +101,8 @@
 				},
 				{
 					"name": "tissu",
-					"pivot": [-1, 2, 0],
+					"parent": "bone",
+					"pivot": [0, 0, 0],
 					"rotation": [0, 0, 15],
 					"cubes": [
 						{"origin": [0.25, 2, 3.75], "size": [2.5, 3, 0], "uv": [40, 12]},
