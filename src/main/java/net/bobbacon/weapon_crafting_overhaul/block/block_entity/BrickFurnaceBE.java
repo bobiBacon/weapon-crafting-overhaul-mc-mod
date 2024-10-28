@@ -20,9 +20,12 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -33,16 +36,20 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.Random;
 
 public class BrickFurnaceBE extends BlockEntity {
     private DefaultedList<ItemStack> itemsBeingCooked= DefaultedList.ofSize(1,ItemStack.EMPTY);
-    private int remainingCookingTime = 0;
-    private boolean cooked= true;
+    private float remainingCookingTime = 0;
+    private boolean cooked= false;
+    private boolean lit= false;
     private int fuelCookingTicks =0;
+    protected int overChargeTicks = 0;
     private final int MAX_FUEL= 15;
     private final String FUEL_KEY= "fuel";
     private final String COOKED_KEY = "cooked";
     private final String COOKING_TIME_KEY = "remaining_time_of_cooking";
+    private final String LIT_KEY= "lit";
     private final RecipeManager.MatchGetter<Inventory, BrickFurnaceCookingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(ModRecipeTypes.BRICK_FURNACE_COOKING_TYPE);
     public BrickFurnaceBE( BlockPos pos, BlockState state) {
         super(ModBEs.MUD_OVEN_BLOCK_ENTITY_TYPE, pos, state);
@@ -50,21 +57,21 @@ public class BrickFurnaceBE extends BlockEntity {
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
         Inventories.writeNbt(nbt, this.itemsBeingCooked, true);
         nbt.putInt(FUEL_KEY, fuelCookingTicks);
-        nbt.putInt(COOKING_TIME_KEY, remainingCookingTime);
+        nbt.putFloat(COOKING_TIME_KEY, remainingCookingTime);
         nbt.putBoolean(COOKED_KEY, cooked );
+        nbt.putBoolean(LIT_KEY,lit);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
         this.itemsBeingCooked.clear();
         Inventories.readNbt(nbt, this.itemsBeingCooked);
         cooked=nbt.getBoolean(COOKED_KEY);
         fuelCookingTicks = nbt.getInt(FUEL_KEY);
         remainingCookingTime = nbt.getInt(COOKING_TIME_KEY);
+        lit= nbt.getBoolean(LIT_KEY);
     }
 
     @Nullable
@@ -82,7 +89,27 @@ public class BrickFurnaceBE extends BlockEntity {
             return;
         }
         WeaponCraftingOverhaul.LOGGER.info("cooking... " + be.remainingCookingTime);
-        be.remainingCookingTime--;
+        WeaponCraftingOverhaul.LOGGER.info(String.valueOf(be.cooked));
+        if (be.isOverCharged()){
+            be.overChargeTicks--;
+            if (be.itemNeedsBellows()){
+                be.remainingCookingTime--;
+            }else {
+                be.remainingCookingTime-= 1.75F;
+            }
+            be.overChargeTicks--;
+        }
+        else {
+            if (!be.itemNeedsBellows()) {
+                be.remainingCookingTime--;
+            } else {
+                Random random=new Random();
+                if (random.nextFloat()<0.5){
+                    world.addParticle(ParticleTypes.SMOKE,pos.getX()+ random.nextFloat(),(double) pos.getY()+0.75,pos.getZ()+ random.nextFloat(),0,random.nextFloat()/10,0);
+                }
+            }
+
+        }
         if (be.remainingCookingTime <= 0)
         {
             be.finishedCooking(state, world, pos);
@@ -98,15 +125,17 @@ public class BrickFurnaceBE extends BlockEntity {
     private void finishedCooking(BlockState state,World world, BlockPos pos){
         setItemBeingCooked(getRecipeFor(getItemBeingCooked()).get().getOutput(world.getRegistryManager()));
         fuelCookingTicks -= 5;
-        light(state,world,pos,false);
+        cooked= true;
+        tryLight(state,world,pos,false);
         WeaponCraftingOverhaul.LOGGER.info("cooked!");
     }
     public boolean addItem(ItemStack itemStack, int cookTime, World world, BlockPos pos,BlockState state) {
         if (getItemBeingCooked().isOf(ItemStack.EMPTY.getItem())){
 
             this.remainingCookingTime = cookTime;
+            cooked=false;
             setItemBeingCooked(itemStack.split(1));
-            light(state,world,pos,true);
+            tryLight(state,world,pos,true);
 
             updateListeners();
             return true;
@@ -114,43 +143,69 @@ public class BrickFurnaceBE extends BlockEntity {
         }
         return false;
     }
-    public boolean addFuel(ItemStack fuelItem,World world, BlockPos pos,BlockState state){
+    public boolean addFuel(ItemStack fuelItem,World world, BlockPos pos,BlockState state,PlayerEntity player){
         Fuel fuel= Fuel.getFuelFromItem(fuelItem.getItem());
         if (fuel==Fuel.Empty){
             return false;
         }
         int power= fuel.getPower();
+        WeaponCraftingOverhaul.LOGGER.info(String.valueOf(this.fuelCookingTicks));
         if (this.fuelCookingTicks + power>=20){
             WeaponCraftingOverhaul.LOGGER.info("over 20");
             return false;
         }
-        this.fuelCookingTicks +=power;
-        fuelItem.decrement(1);
-        light(state,world,pos,true);
+        this.fuelCookingTicks += power;
+        if (!player.isCreative()) fuelItem.decrement(1);
+        tryLight(state,world,pos,true);
         return true;
     }
-    public boolean isOverpowered(){
-        return false;
+    public boolean isOverCharged(){
+        WeaponCraftingOverhaul.LOGGER.info(String.valueOf(overChargeTicks));
+        return overChargeTicks>0;
     }
-    public void light(BlockState state, World world, BlockPos pos, boolean shouldLight){
-        Optional<BrickFurnaceCookingRecipe> optional=matchGetter.getFirstMatch(new SimpleInventory(getItemBeingCooked()),this.world);
-        if (optional.isPresent()){
-            BrickFurnaceCookingRecipe recipe= optional.get();
-            boolean b= recipe.NeedsBellows()&&!isOverpowered();
-            shouldLight = shouldLight && fuelCookingTicks>=5 && ! getItemBeingCooked().isEmpty() && !b;
-        }
-        else {
-            shouldLight = shouldLight && fuelCookingTicks>=5 && ! getItemBeingCooked().isEmpty();
-        }
+    public void overCharge(){
+        assert world != null;
+        world.playSound(
+                (double)pos.getX() + 0.5,
+                (double)pos.getY() + 0.5,
+                (double)pos.getZ() + 0.5,
+                SoundEvents.ITEM_FIRECHARGE_USE,
+                SoundCategory.BLOCKS,
+                0.5F,
+                1F,
+                false
+        );
+        overChargeTicks= 100;
+    }
+    public void tryLight(BlockState state, World world, BlockPos pos, boolean shouldLight){
+//        Optional<BrickFurnaceCookingRecipe> optional=matchGetter.getFirstMatch(new SimpleInventory(getItemBeingCooked()),this.world);
+//        if (optional.isPresent()){
+//            BrickFurnaceCookingRecipe recipe= optional.get();
+//            boolean b= recipe.NeedsBellows()&&!isOverCharged();
+//            shouldLight = shouldLight && fuelCookingTicks>=5 && ! getItemBeingCooked().isEmpty() && !b;
+//        }
+//        else {
+//            shouldLight = shouldLight && fuelCookingTicks>=5 && ! getItemBeingCooked().isEmpty();
+//        }
+        shouldLight = shouldLight && fuelCookingTicks>=5 && ! getItemBeingCooked().isEmpty()&& !cooked /*&& !(itemNeedsBellows()&&!isOverCharged())*/;
         WeaponCraftingOverhaul.LOGGER.info("should light"+ shouldLight);
+        if (!shouldLight){
+            overChargeTicks=0;
+        }
         world.setBlockState(pos, state.with(BrickFurnace.LIT, shouldLight), Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
-        cooked= !shouldLight;
+        lit= shouldLight;
+        if (shouldLight){
+            cooked= false;
+        }
         markDirty();
     }
-
+    public boolean itemNeedsBellows(){
+        Optional<BrickFurnaceCookingRecipe> optional=matchGetter.getFirstMatch(new SimpleInventory(getItemBeingCooked()),this.world);
+        return optional.map(BrickFurnaceCookingRecipe::NeedsBellows).orElse(false);
+    }
     public boolean isLit(){
-        return !cooked && fuelCookingTicks >=5;
+        return lit && fuelCookingTicks >=5;
     }
     public Optional<BrickFurnaceCookingRecipe> getRecipeFor(ItemStack stack) {
         return this.matchGetter.getFirstMatch(new SimpleInventory(stack), this.world);
@@ -176,7 +231,7 @@ public class BrickFurnaceBE extends BlockEntity {
     }
     public void removeItem(World world,BlockPos pos,BlockState state){
         setItemBeingCooked(ItemStack.EMPTY);
-        light(state,world,pos,false);
+        tryLight(state,world,pos,false);
         updateListeners();
     }
     public float getXpFromItemBeingCooked(){

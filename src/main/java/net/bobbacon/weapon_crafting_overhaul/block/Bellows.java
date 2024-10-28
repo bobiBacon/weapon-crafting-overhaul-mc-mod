@@ -2,6 +2,7 @@ package net.bobbacon.weapon_crafting_overhaul.block;
 
 import com.eliotlash.mclib.math.functions.classic.Mod;
 import net.bobbacon.weapon_crafting_overhaul.block.block_entity.BellowsBE;
+import net.bobbacon.weapon_crafting_overhaul.block.block_entity.BrickFurnaceBE;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -46,11 +47,33 @@ public class Bellows extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BellowsBE bellowsBlockEntity = (BellowsBE)  Objects.requireNonNull(world.getBlockEntity(pos));
         if (bellowsBlockEntity.onUse()) {
+            BlockState furnaceState= world.getBlockState(bellowsBlockEntity.frontBlockPos);
+            if (furnaceState.isOf(ModBlocks.MUD_OVEN)){
+                BrickFurnaceBE brickFurnaceBE= (BrickFurnaceBE) world.getBlockEntity(bellowsBlockEntity.frontBlockPos);
+                assert brickFurnaceBE != null;
+                brickFurnaceBE.overCharge();
+            }
             return ActionResult.SUCCESS;
         }
         return ActionResult.CONSUME;
     }
-
+    public static BlockState getFrontBlock(BlockState state, World world, BlockPos pos){
+        switch (state.get(FACING)){
+            case EAST -> {
+                return world.getBlockState(new BlockPos(pos.getX()+1,pos.getY(),pos.getZ()));
+            }
+            case WEST -> {
+                return world.getBlockState(new BlockPos(pos.getX()-1,pos.getY(),pos.getZ()));
+            }
+            case SOUTH -> {
+                return world.getBlockState(new BlockPos(pos.getX(),pos.getY(),pos.getZ()+1));
+            }
+            case NORTH -> {
+                return world.getBlockState(new BlockPos(pos.getX(),pos.getY(),pos.getZ()-1));
+            }
+        }
+        throw new RuntimeException("Bellows does not have a direction");
+    }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
@@ -76,7 +99,7 @@ public class Bellows extends BlockWithEntity {
 //            if (stateEntry.getValue().get(BrickFurnace.FACING).getOpposite()==stateEntry.getKey()){
 //                continue;
 //            }
-            
+
             return this.getDefaultState().with(FACING,stateEntry.getKey());
         }
 

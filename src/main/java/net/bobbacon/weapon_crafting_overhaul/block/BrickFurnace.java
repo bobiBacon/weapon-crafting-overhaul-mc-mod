@@ -71,7 +71,7 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
         BrickFurnaceBE brickFurnaceBlockEntity = (BrickFurnaceBE) Objects.requireNonNull(world.getBlockEntity(pos));
         Optional<BrickFurnaceCookingRecipe> optional=brickFurnaceBlockEntity.getRecipeFor(itemStack);
 //        fuel
-        if (brickFurnaceBlockEntity.addFuel(itemStack,world,pos,state)){
+        if (brickFurnaceBlockEntity.addFuel(itemStack,world,pos,state,player)){
             return ActionResult.SUCCESS;
         }
 //        recipe
@@ -91,7 +91,7 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
             double d = (double)pos.getX() + 0.5;
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5;
-            world.playSound(d, e, f, SoundEvents.ENTITY_GLOW_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1.0f, 1.0f, true);
+            world.playSound(d, e, f, SoundEvents.ENTITY_GLOW_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 0.5f, 3.0f, true);
             Direction direction = state.get(FACING);
             Direction.Axis axis = direction.getAxis();
             for (int l = 0; l < 6; l++) {
@@ -122,13 +122,12 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
     protected ActionResult failAction(World world, BlockPos pos, BlockState state){
 
 
-            Random random= new Random();
-            world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f, true);
+        Random random= new Random();
+        world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1f, 0.5f, true);
 
-            for (int i = 0; i < 7; i++) {
-                world.addParticle(ParticleTypes.SMOKE,pos.getX()+ random.nextFloat(),(double) pos.getY()+0.75,pos.getZ()+ random.nextFloat(),0,random.nextFloat()/10,0);
-
-            }
+        for (int i = 0; i < 7; i++) {
+            world.addParticle(ParticleTypes.SMOKE,pos.getX()+ random.nextFloat(),(double) pos.getY()+0.75,pos.getZ()+ random.nextFloat(),0,random.nextFloat()/10,0);
+        }
 
         return ActionResult.CONSUME;
     }
@@ -174,19 +173,43 @@ public class BrickFurnace extends BlockWithEntity implements LiquidMetalable {
         double d = (double)pos.getX() + 0.5;
         double e = pos.getY();
         double f = (double)pos.getZ() + 0.5;
-        if (random.nextDouble() < 0.1) {
-            world.playSound(d, e, f, SoundEvents.BLOCK_CAMPFIRE_CRACKLE, SoundCategory.BLOCKS, 1.0f, 1.0f, false);
-        }
+        boolean overcharged=  ((BrickFurnaceBE) Objects.requireNonNull(world.getBlockEntity(pos))).isOverCharged();
+
+            if (overcharged){
+                world.playSound(
+                        (double)pos.getX() + 0.5,
+                        (double)pos.getY() + 0.5,
+                        (double)pos.getZ() + 0.5,
+                        SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE,
+                        SoundCategory.BLOCKS,
+                        2.5F + random.nextFloat(),
+                        random.nextFloat() * 0.7F + 0.6F,
+                        false
+                );
+            }else {
+                world.playSound(
+                        (double)pos.getX() + 0.5,
+                        (double)pos.getY() + 0.5,
+                        (double)pos.getZ() + 0.5,
+                        SoundEvents.BLOCK_CAMPFIRE_CRACKLE,
+                        SoundCategory.BLOCKS,
+                        1F + random.nextFloat(),
+                        random.nextFloat() * 0.7F + 0.6F,
+                        false
+                );
+            }
+
         Direction direction = state.get(FACING);
         Direction.Axis axis = direction.getAxis();
-        double g = 0.52;
-        double h = random.nextDouble() * 0.6 - 0.3;
-        double i = axis == Direction.Axis.X ? (double)direction.getOffsetX() * 0.40 : h;
-        double j = random.nextDouble() * 6.0 / 16.0;
-        double k = axis == Direction.Axis.Z ? (double)direction.getOffsetZ() * 0.40 : h;
-        world.addParticle(ParticleTypes.SMOKE, d + i, e + j, f + k, 0.0, 0.0, 0.0);
-        world.addParticle(ParticleTypes.FLAME, d + i, e + j, f + k, 0.0, 0.0, 0.0);
-        world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,d,e,f,(random.nextFloat()-0.5)/30-0.02,0.05+(random.nextFloat()/100),(random.nextFloat()-0.5)/30);
+        for (int i = overcharged ? 0 : 1 ; i < 2 ; i++) {
+            double h = random.nextDouble() * 0.6 - 0.3;
+            double g = axis == Direction.Axis.X ? (double)direction.getOffsetX() * 0.40 : h;
+            double j = random.nextDouble() * 6.0 / 16.0;
+            double k = axis == Direction.Axis.Z ? (double)direction.getOffsetZ() * 0.40 : h;
+            world.addParticle(ParticleTypes.SMOKE, d + g, e + j, f + k, 0.0, 0.0, 0.0);
+            world.addParticle(ParticleTypes.FLAME, d + g, e + j, f + k, 0.0, 0.0, 0.0);
+            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,d,e,f,(random.nextFloat()-0.5)/30-0.02,0.05+(random.nextFloat()/100),(random.nextFloat()-0.5)/30);
+        }
     }
 
 
