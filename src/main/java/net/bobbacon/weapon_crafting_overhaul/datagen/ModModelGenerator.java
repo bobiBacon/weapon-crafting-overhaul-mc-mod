@@ -11,6 +11,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class ModModelGenerator extends FabricModelProvider {
     public ModModelGenerator(FabricDataOutput output) {
@@ -27,7 +28,6 @@ public class ModModelGenerator extends FabricModelProvider {
 
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.MUD_OVEN).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT,new Identifier(WeaponCraftingOverhaul.MOD_ID,"block/brick_furnace_lit"),new Identifier(WeaponCraftingOverhaul.MOD_ID,"block/brick_furnace_unlit"))));
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.BELLOWS).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
-
 //        blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(ModBlocks.brick_furnace)
 //                .with(When.create().set(Properties.HORIZONTAL_FACING, Direction.NORTH).set(Properties.LIT,false),
 //                        BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.X)));
@@ -61,5 +61,7 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COPPER_AXE_MOLD,Models.GENERATED);
         itemModelGenerator.register(ModItems.FABRIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BELLOWS,new Model(Optional.of(new Identifier(WeaponCraftingOverhaul.MOD_ID,"block/bellows")), Optional.empty()));
+
     }
 }
