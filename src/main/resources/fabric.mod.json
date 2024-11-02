@@ -26,11 +26,8 @@
 		]
 	},
 	"mixins": [
-		"weapon_crafting_overhaul.mixins.json",
-		{
-			"config": "weapon_crafting_overhaul.client.mixins.json",
-			"environment": "client"
-		}
+		"weapon_crafting_overhaul.mixins.json"
+
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",

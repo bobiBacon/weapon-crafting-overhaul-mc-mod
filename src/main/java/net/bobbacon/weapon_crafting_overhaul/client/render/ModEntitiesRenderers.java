@@ -1,4 +1,4 @@
-package net.bobbacon.weapon_crafting_overhaul.render;
+package net.bobbacon.weapon_crafting_overhaul.client.render;
 
 import net.bobbacon.weapon_crafting_overhaul.block.block_entity.ModBEs;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;

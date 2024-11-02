@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.GeckoLib;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -61,7 +62,7 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COPPER_AXE_MOLD,Models.GENERATED);
         itemModelGenerator.register(ModItems.FABRIC,Models.GENERATED);
-        itemModelGenerator.register(ModItems.BELLOWS,new Model(Optional.of(new Identifier(WeaponCraftingOverhaul.MOD_ID,"block/bellows")), Optional.empty()));
+//        itemModelGenerator.register(ModItems.BELLOWS,new Model(Optional.of(new Identifier(GeckoLib.MOD_ID,"block/box")), Optional.empty()));
 
     }
 }

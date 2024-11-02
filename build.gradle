@@ -36,12 +36,10 @@ repositories {
 }
 
 loom {
-    splitEnvironmentSourceSets()
 
 	mods {
 		"weapon_crafting_overhaul" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 	accessWidenerPath = file("src/main/resources/weapon_crafting_overhaul.accesswidener")

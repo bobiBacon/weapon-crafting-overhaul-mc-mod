@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-28T17:55:42.7368774	Weapon Crafting Overhaul/Recipes
+// 1.20.1	2024-11-02T16:20:17.476017	Weapon Crafting Overhaul/Recipes
 67371810817ade4978fee83fc587b31ce276fa9e data\weapon_crafting_overhaul\advancements\recipes\misc\fabric.json
 bd06151553cb889972e886b691a43ee91c46bedc data\weapon_crafting_overhaul\advancements\recipes\misc\stone_pickaxe.json
 c8817bce53e85e9b24aaf870d9c17e9f24bd61fa data\weapon_crafting_overhaul\advancements\recipes\misc\wooden_axe.json
@@ -30,8 +30,8 @@ a61a4dcf3e7d1ffd2c9f96a2916eec557c8eb7ad data\weapon_crafting_overhaul\advanceme
 11a302aa6de96e2bb650464a87fa7027b3c8d03a data\weapon_crafting_overhaul\recipes\axe_mold.json
 4724459d2e583635752059c5650e2dafa63d7e3f data\minecraft\recipes\stone_pickaxe.json
 e439641debb3c5e4119160f584227d061a75f1f2 data\weapon_crafting_overhaul\advancements\recipes\tools\copper_pickaxe.json
-4724459d2e583635752059c5650e2dafa63d7e3f data\minecraft\recipes\stone_hoe.json
 4724459d2e583635752059c5650e2dafa63d7e3f data\minecraft\recipes\stone_axe.json
+4724459d2e583635752059c5650e2dafa63d7e3f data\minecraft\recipes\stone_hoe.json
 140efde1acba15bdd6800df9f22b441d94e6c1ea data\weapon_crafting_overhaul\advancements\recipes\building_blocks\cobblestone.json
 d42994db46268bd43af61030af4df0421f46be10 data\weapon_crafting_overhaul\advancements\recipes\misc\stone_shovel.json
 5cce64c927b752694b4d152d21dbb55c1bfde84f data\weapon_crafting_overhaul\recipes\war_axe_mold.json
