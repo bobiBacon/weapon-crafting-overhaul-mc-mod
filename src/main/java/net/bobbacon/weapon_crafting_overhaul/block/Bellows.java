@@ -3,10 +3,13 @@ package net.bobbacon.weapon_crafting_overhaul.block;
 import com.eliotlash.mclib.math.functions.classic.Mod;
 import net.bobbacon.weapon_crafting_overhaul.block.block_entity.BellowsBE;
 import net.bobbacon.weapon_crafting_overhaul.block.block_entity.BrickFurnaceBE;
+import net.bobbacon.weapon_crafting_overhaul.sounds.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
@@ -52,6 +55,16 @@ public class Bellows extends BlockWithEntity {
                 BrickFurnaceBE brickFurnaceBE= (BrickFurnaceBE) world.getBlockEntity(bellowsBlockEntity.frontBlockPos);
                 assert brickFurnaceBE != null;
                 brickFurnaceBE.overCharge();
+            }
+            else {
+                world.playSoundAtBlockCenter(
+                        pos,
+                        ModSounds.BELLOWS,
+                        SoundCategory.BLOCKS,
+                        0.5F,
+                        0.5F,
+                        true
+                );
             }
             return ActionResult.SUCCESS;
         }
@@ -105,5 +118,6 @@ public class Bellows extends BlockWithEntity {
 
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
+
 
 }

@@ -5,6 +5,7 @@ import net.bobbacon.weapon_crafting_overhaul.block.BrickFurnace;
 import net.bobbacon.weapon_crafting_overhaul.forging.Fuel;
 import net.bobbacon.weapon_crafting_overhaul.recipe.BrickFurnaceCookingRecipe;
 import net.bobbacon.weapon_crafting_overhaul.recipe.types.ModRecipeTypes;
+import net.bobbacon.weapon_crafting_overhaul.sounds.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -165,14 +166,12 @@ public class BrickFurnaceBE extends BlockEntity {
     }
     public void overCharge(){
         assert world != null;
-        world.playSound(
-                (double)pos.getX() + 0.5,
-                (double)pos.getY() + 0.5,
-                (double)pos.getZ() + 0.5,
-                SoundEvents.ITEM_FIRECHARGE_USE,
+        world.playSoundAtBlockCenter(
+                pos,
+                ModSounds.BELLOWS,
                 SoundCategory.BLOCKS,
                 0.5F,
-                1F,
+                1.5F,
                 false
         );
         overChargeTicks= 100;

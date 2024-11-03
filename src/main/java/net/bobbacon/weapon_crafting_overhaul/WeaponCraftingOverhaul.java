@@ -7,6 +7,7 @@ import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetals;
 import net.bobbacon.weapon_crafting_overhaul.recipe.ModRecipes;
 import net.bobbacon.weapon_crafting_overhaul.recipe.types.ModRecipeTypes;
 import net.bobbacon.weapon_crafting_overhaul.client.render.ModEntitiesRenderers;
+import net.bobbacon.weapon_crafting_overhaul.sounds.ModSounds;
 import net.bobbacon.weapon_crafting_overhaul.world.feature.ModFeatures;
 import net.bobbacon.weapon_crafting_overhaul.world.gen.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
@@ -47,7 +48,7 @@ public class WeaponCraftingOverhaul implements ModInitializer {
 
 		LiquidMetals.init();
 
-
+		ModSounds.init();
 
 
 

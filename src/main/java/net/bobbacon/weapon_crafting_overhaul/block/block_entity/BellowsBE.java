@@ -5,6 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
@@ -85,6 +88,7 @@ public class BellowsBE extends BlockEntity implements GeoBlockEntity {
         }
 
         triggerAnim(BLOWING_CONTROLLER,BLOW_ANIM_NAME);
+
         return true;
     }
 
