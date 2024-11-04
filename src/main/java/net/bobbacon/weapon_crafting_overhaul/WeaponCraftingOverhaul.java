@@ -7,11 +7,13 @@ import net.bobbacon.weapon_crafting_overhaul.liquid_metal.LiquidMetals;
 import net.bobbacon.weapon_crafting_overhaul.recipe.ModRecipes;
 import net.bobbacon.weapon_crafting_overhaul.recipe.types.ModRecipeTypes;
 import net.bobbacon.weapon_crafting_overhaul.client.render.ModEntitiesRenderers;
+import net.bobbacon.weapon_crafting_overhaul.screen.ModScreenHandlers;
 import net.bobbacon.weapon_crafting_overhaul.sounds.ModSounds;
 import net.bobbacon.weapon_crafting_overhaul.world.feature.ModFeatures;
 import net.bobbacon.weapon_crafting_overhaul.world.gen.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.screen.ScreenHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib.GeckoLib;
@@ -50,6 +52,7 @@ public class WeaponCraftingOverhaul implements ModInitializer {
 
 		ModSounds.init();
 
+		ModScreenHandlers.init();
 
 
 //		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {

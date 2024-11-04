@@ -31,7 +31,7 @@ public class Bellows extends BlockWithEntity {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2,0,2,14,7,14);
 
-    protected Bellows(Settings settings) {
+    public Bellows(Settings settings) {
         super(settings);
     }
 

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "weapon_crafting_overhaul:block/rustic_smithing_anvil",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "weapon_crafting_overhaul:block/rustic_smithing_anvil"
+    },
+    "facing=south": {
+      "model": "weapon_crafting_overhaul:block/rustic_smithing_anvil",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "weapon_crafting_overhaul:block/rustic_smithing_anvil",
+      "y": 270
+    }
+  }
+}

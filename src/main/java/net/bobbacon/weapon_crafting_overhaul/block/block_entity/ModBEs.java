@@ -20,6 +20,9 @@ public class ModBEs {
     public static final BlockEntityType<BellowsBE> BELLOWS_BLOCK_ENTITY_TYPE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
             new Identifier(WeaponCraftingOverhaul.MOD_ID,"bellows_block_entity"),
             FabricBlockEntityTypeBuilder.create(BellowsBE::new, ModBlocks.BELLOWS).build());
+    public static final BlockEntityType<SmithingAnvilBE> SMITHING_ANVIL_BLOCK_ENTITY_TYPE = Registry.register(Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(WeaponCraftingOverhaul.MOD_ID,"basic_smithing_anvil"),
+            FabricBlockEntityTypeBuilder.create(SmithingAnvilBE::new,ModBlocks.BASIC_SMITHING_ANVIL).build());
     public static void init(){
 
     }

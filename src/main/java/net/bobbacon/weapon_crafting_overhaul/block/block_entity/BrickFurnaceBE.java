@@ -26,7 +26,6 @@ import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -51,7 +50,7 @@ public class BrickFurnaceBE extends BlockEntity {
     private final String COOKED_KEY = "cooked";
     private final String COOKING_TIME_KEY = "remaining_time_of_cooking";
     private final String LIT_KEY= "lit";
-    private final RecipeManager.MatchGetter<Inventory, BrickFurnaceCookingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(ModRecipeTypes.BRICK_FURNACE_COOKING_TYPE);
+    private final RecipeManager.MatchGetter<Inventory, BrickFurnaceCookingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(ModRecipeTypes.BRICK_FURNACE_COOKING);
     public BrickFurnaceBE( BlockPos pos, BlockState state) {
         super(ModBEs.MUD_OVEN_BLOCK_ENTITY_TYPE, pos, state);
     }

@@ -41,6 +41,7 @@ public class ModItems  {
     public static final Item FABRIC = registryHelper.register("fabric", new Item(new Item.Settings()));
 //    public static final Item BELLOWS = registryHelper.register("bellows", new BlockItem(ModBlocks.BELLOWS, new Item.Settings()));
     public static final Item BELLOWS = registryHelper.register("bellows", new BellowsBlockItem(ModBlocks.BELLOWS, new FabricItemSettings()));
+    public static final Item BASIC_SMITHING_ANVIL = registryHelper.register("rustic_smithing_anvil", new BellowsBlockItem(ModBlocks.BASIC_SMITHING_ANVIL, new FabricItemSettings()));
 
     public static void init() {
     }

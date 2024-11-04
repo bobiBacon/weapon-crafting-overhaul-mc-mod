@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class BrickFurnaceCookingRecipe extends AbstractCookingRecipe {
     protected final boolean needsBellows;
     public BrickFurnaceCookingRecipe(Identifier id, String group, CookingRecipeCategory category, Ingredient input, ItemStack output, float experience, int cookTime, boolean needsBellows) {
-        super(ModRecipeTypes.BRICK_FURNACE_COOKING_TYPE, id, group, category, input, output, experience, cookTime);
+        super(ModRecipeTypes.BRICK_FURNACE_COOKING, id, group, category, input, output, experience, cookTime);
         this.needsBellows = needsBellows;
     }
 

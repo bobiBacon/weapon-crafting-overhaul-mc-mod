@@ -20,7 +20,10 @@ public class ModBlocks {
     public static final Block DEEP_TIN_ORE= registryHelper.register("deepslate_tin_ore",
             new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_IRON_ORE)));
     public static final Block BELLOWS = registryHelper.register("bellows",
-            new Bellows(FabricBlockSettings.create().nonOpaque().notSolid().sounds(BlockSoundGroup.WOOL)));
+            new Bellows(FabricBlockSettings.create().nonOpaque().sounds(BlockSoundGroup.WOOL)));
+
+    public static final Block BASIC_SMITHING_ANVIL = registryHelper.register("rustic_smithing_anvil",
+            new SmithingAnvil(FabricBlockSettings.create().nonOpaque().sounds(BlockSoundGroup.STONE)));
     public static void init(){
 
         WeaponCraftingOverhaul.LOGGER.info("blocks");

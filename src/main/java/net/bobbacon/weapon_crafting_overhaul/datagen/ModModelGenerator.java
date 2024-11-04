@@ -36,6 +36,7 @@ public class ModModelGenerator extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEP_TIN_ORE);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.BASIC_SMITHING_ANVIL,BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(WeaponCraftingOverhaul.MOD_ID,"block/rustic_smithing_anvil"))).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
     }
 
@@ -62,6 +63,9 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COPPER_AXE_MOLD,Models.GENERATED);
         itemModelGenerator.register(ModItems.FABRIC,Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIN_STONE_BOWL,Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_STONE_BOWL,Models.GENERATED);
+
 //        itemModelGenerator.register(ModItems.BELLOWS,new Model(Optional.of(new Identifier(GeckoLib.MOD_ID,"block/box")), Optional.empty()));
 
     }
