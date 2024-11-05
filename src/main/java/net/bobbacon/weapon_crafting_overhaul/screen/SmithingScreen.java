@@ -21,7 +21,7 @@ public class SmithingScreen extends HandledScreen<SmithingScreenHandler> {
         super.init();
 //        titleY= 1000;
 //        playerInventoryTitleY = 1000;
-        playerInventoryTitle
+
     }
 
     @Override
@@ -33,10 +33,15 @@ public class SmithingScreen extends HandledScreen<SmithingScreenHandler> {
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderProgressArrow(context, x, y);
+        drawProgressArrow(context, x, y);
     }
 
-    private void renderProgressArrow(DrawContext context, int x, int y) {
+    @Override
+    protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
+        context.drawText(this.textRenderer, this.title, this.titleX, this.titleY, 4210752, false);
+    }
+
+    private void drawProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
             context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, handler.getScaledProgress(),8 );
         }
